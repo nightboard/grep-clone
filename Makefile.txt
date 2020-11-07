@@ -1,0 +1,2 @@
+grep : grep.c
+    g++ -o grep
