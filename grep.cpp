@@ -52,7 +52,7 @@ bool findSubString(std::string& str,std::string& substr) {
         while((j != substr.length()) && (str[j] == substr[j])) {
             j++;
         }
-        if(j == substr.length() - 1)
+        if(j == substr.length())
             return true;
     }
     return false;
