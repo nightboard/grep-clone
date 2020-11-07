@@ -34,9 +34,26 @@ State checkValidity(int argc) {
     }
 }
 
+bool findSubString(std::string& str,std::string& substr);
+
 void checkInBuffer(std::string& str) {
     std::string line;
     while(true) {
         getline(std::cin,line);
+        if(findSubString(line,str)) {
+            std::cout<<line<<std::endl;
+        }
     }
+}
+
+bool findSubString(std::string& str,std::string& substr) {
+    for(int i=0;i<int(str.length() - substr.length());i++) {
+        int j = i;
+        while((j != substr.length()) && (str[j] == substr[j])) {
+            j++;
+        }
+        if(j == substr.length() - 1)
+            return true;
+    }
+    return false;
 }
