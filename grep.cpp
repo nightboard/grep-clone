@@ -1,11 +1,6 @@
 #include <iostream>
+#include "src/args.h"
 
-typedef enum {
-    ONE_ARGUMENT,
-    TWO_ARGUMENTS
-} State;
-
-State checkValidArgs(int argc);
 void checkInBuffer(const std::string& str);
 bool findSubString(const std::string& str,const std::string& substr);
 
@@ -21,17 +16,6 @@ int main(int argc,char* argv[]) {
     return 0;
 }
 
-State checkValidArgs(int argc) {
-    if(argc == 1) {
-        std::cout<<"No arguments grep --help for more information\n";
-        exit(1);
-    } else if(argc == 2) {
-        return ONE_ARGUMENT;
-    } else {
-        return TWO_ARGUMENTS;
-    }
-}
-
 void checkInBuffer(const std::string& str) {
     std::string line;
     while(true) {
@@ -45,7 +29,7 @@ void checkInBuffer(const std::string& str) {
 bool findSubString(const std::string& str,const std::string& substr) {
     for(int i=0;i<int(str.length() - substr.length());i++) {
         int j = i;
-        while((j != substr.length() - i) && (str[j] == substr[j])) {
+        while((j != substr.length() - i) && (str[j] == substr[j-substr.length()])) {
             j++;
         }
         if((j - i - 1) == (substr.length() - 1))
