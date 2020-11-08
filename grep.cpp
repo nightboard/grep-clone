@@ -6,15 +6,13 @@ typedef enum {
 } State;
 
 State checkValidity(int argc);
-void checkInBuffer(std::string str);
-bool findSubString(std::string str,std::string substr);
+void checkInBuffer(const std::string& str);
+bool findSubString(const std::string& str,const std::string& substr);
 
 int main(int argc,char* argv[]) {
-    std::string str;
     switch(checkValidity(argc)) {
         case ONE_ARGUMENT:
-            str = argv[1];
-            checkInBuffer(str);
+            checkInBuffer(std::string(argv[1]));
             break;
         case TWO_ARGUMENTS:
 
@@ -36,7 +34,7 @@ State checkValidity(int argc) {
 }
 
 
-void checkInBuffer(std::string str) {
+void checkInBuffer(const std::string& str) {
     std::string line;
     while(true) {
         getline(std::cin,line);
@@ -46,7 +44,7 @@ void checkInBuffer(std::string str) {
     }
 }
 
-bool findSubString(std::string str,std::string substr) {
+bool findSubString(const std::string& str,const std::string& substr) {
     for(int i=0;i<int(str.length() - substr.length());i++) {
         int j = i;
         while((j != substr.length() - i) && (str[j] == substr[j])) {
