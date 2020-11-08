@@ -3,5 +3,7 @@ typedef enum {
     TWO_ARGUMENTS
 } State;
 
-State checkValidArgs(int argc);
-void checkInBuffer(const std::string& str);
+State checkValidArgs(int argc,char *argv[]);
+void provideBuffer(const std::string& str);
+void help();
+bool isColorOn(int,char *[]);
