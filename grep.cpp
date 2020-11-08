@@ -5,12 +5,12 @@ typedef enum {
     TWO_ARGUMENTS
 } State;
 
-State checkValidity(int argc);
+State checkValidArgs(int argc);
 void checkInBuffer(const std::string& str);
 bool findSubString(const std::string& str,const std::string& substr);
 
 int main(int argc,char* argv[]) {
-    switch(checkValidity(argc)) {
+    switch(checkValidArgs(argc)) {
         case ONE_ARGUMENT:
             checkInBuffer(std::string(argv[1]));
             break;
@@ -21,10 +21,9 @@ int main(int argc,char* argv[]) {
     return 0;
 }
 
-State checkValidity(int argc) {
-    if(argc <= 1) {
-        std::cout<<"No arguments specified\n";
-        std::cout<<"grep --help for more information\n";
+State checkValidArgs(int argc) {
+    if(argc == 1) {
+        std::cout<<"No arguments grep --help for more information\n";
         exit(1);
     } else if(argc == 2) {
         return ONE_ARGUMENT;
@@ -32,7 +31,6 @@ State checkValidity(int argc) {
         return TWO_ARGUMENTS;
     }
 }
-
 
 void checkInBuffer(const std::string& str) {
     std::string line;
