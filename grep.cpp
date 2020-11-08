@@ -27,12 +27,13 @@ void checkInBuffer(const std::string& str) {
 }
 
 bool findSubString(const std::string& str,const std::string& substr) {
-    for(int i=0;i<int(str.length() - substr.length());i++) {
-        int j = i;
-        while((j != substr.length() - i) && (str[j] == substr[j-substr.length()])) {
-            j++;
+    for(int i=0;i<=(str.length()-substr.length());i++) {
+        int j,match = 0;
+        for(j=0;j<substr.length();j++) {
+            if(substr[j] == str[i+j])
+                match++;
         }
-        if((j - i - 1) == (substr.length() - 1))
+        if(match == substr.length())
             return true;
     }
     return false;
