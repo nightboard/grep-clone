@@ -2,6 +2,7 @@
 #include <iostream>
 #endif
 #include "args.h"
+#include "matchAlgo.h"
 
 State checkValidArgs(int argc) {
     if(argc == 1) {
@@ -11,5 +12,15 @@ State checkValidArgs(int argc) {
         return ONE_ARGUMENT;
     } else {
         return TWO_ARGUMENTS;
+    }
+}
+
+void checkInBuffer(const std::string& str) {
+    std::string line;
+    while(true) {
+        getline(std::cin,line);
+        if(findSubString(line,str)) {
+            std::cout<<line<<std::endl;
+        }
     }
 }

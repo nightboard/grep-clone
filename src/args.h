@@ -4,3 +4,4 @@ typedef enum {
 } State;
 
 State checkValidArgs(int argc);
+void checkInBuffer(const std::string& str);
