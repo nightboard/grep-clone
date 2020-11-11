@@ -2,6 +2,7 @@
 #include <iostream>
 #endif
 #include <cstring>
+#include <fstream>
 #include "args.h"
 #include "matchAlgo.h"
 
@@ -53,4 +54,17 @@ bool isNeedHelp(int argc,char *argv[]) {
 void handleMeta(int argc,char *argv[]) {
     if(isNeedHelp(argc,argv))
         help();
+}
+
+void handleFile(const std::string& pattern, const std::string& filename) {
+    std::ifstream inFile;
+    inFile.open(filename.c_str());
+    std::string line;
+    while(!inFile.eof()) {
+        getline(inFile, line);
+        if(findSubString(line,pattern)) {
+            std::cout<<line<<std::endl;
+        }
+    }
+    inFile.close();
 }
