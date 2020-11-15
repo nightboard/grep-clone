@@ -4,10 +4,10 @@
 
 int main(int argc,char *argv[]) {
     switch(checkValidArgs(argc,argv)) {
-        case ONE_ARGUMENT:
+        case PROVIDE_BUFFER:
             provideBuffer(std::string(argv[1]));
             break;
-        case TWO_ARGUMENTS:
+        case CHECK_FOR_FILE:
             handleFile(std::string(argv[1]),std::string(argv[2]));
             break;
     }
