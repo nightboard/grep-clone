@@ -3,7 +3,7 @@
 grep: grep.o args.o matchAlgo.o
 	g++ grep.o args.o matchAlgo.o -o grep
 
-grep.o: grep.cpp
+grep.o: grep.cpp src/matchAlgo.h src/args.h
 	g++ -c grep.cpp
 
 args.o: src/args.cpp src/args.h

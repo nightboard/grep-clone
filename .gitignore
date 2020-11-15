@@ -1,4 +1,4 @@
 grep
 *.o
-.vscode
+.vscode/
 *.txt

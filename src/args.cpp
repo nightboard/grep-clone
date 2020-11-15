@@ -1,6 +1,4 @@
-#ifndef _GLIBCXX_IOSTREAM
 #include <iostream>
-#endif
 #include <cstring>
 #include <fstream>
 #include "args.h"

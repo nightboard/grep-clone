@@ -1,6 +1,5 @@
-#ifndef _GLIBCXX_IOSTREAM
 #include <iostream>
-#endif
+#include "matchAlgo.h"
 
 bool findSubString(const std::string& str,const std::string& substr) {
     if(str.length() < substr.length())

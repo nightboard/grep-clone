@@ -1,3 +1,5 @@
+#pragma once
+
 typedef enum {
     ONE_ARGUMENT,
     TWO_ARGUMENTS

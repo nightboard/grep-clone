@@ -1,5 +1,3 @@
-#ifndef _GLIBCXX_IOSTREAM
-#include <iostream>
-#endif
+#pragma once
 
 bool findSubString(const std::string& str,const std::string& substr);
